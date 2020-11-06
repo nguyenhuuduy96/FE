@@ -1,0 +1,29 @@
+.header-top {
+    background-color: #fdc215!important;
+    line-height: 1.5;
+    font-size: 18px;
+    .flex-row {
+        display: flex;
+        .flex-col {
+            max-width: 100%;
+        }
+        .flex-right {
+            margin-left: auto;
+            font-size: 18px;
+        }
+        li {
+            margin: 0 7px;
+            line-height: 35px;
+        }
+        .nav-top-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: .8em;
+        }
+    }
+    .html_topbar_left {
+        color: #fff;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: .8em;
+    }
+}
