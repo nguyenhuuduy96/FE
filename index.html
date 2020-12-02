@@ -4,43 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/boostrap-4/bootstrap.css">
-    <link rel="stylesheet" href="./css/style/style.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://matong.langsonweb.com/wp-content/themes/flatsome/assets/css/fl-icons.css" type="text/css">
     <title>Document</title>
+
 </head>
 
 <body>
-    <div class="wapper">
-        <header>
-            <div id="top-bar" class="header-top">
-                <div class="flex-row container">
-                    <div class="flex-col flex-left">
-                        <ul class="nav nav-left medium-nav-center nav-small  nav-">
-                            <li class="html custom html_topbar_left">Chào mừng bạn đến với mẫu web của Topweb</li>
-                        </ul>
-                    </div>
-                    <!-- flex-col left -->
 
-                    <div class="flex-col flex-center">
-                        <ul class="nav nav-center nav-small  nav-">
-                        </ul>
-                    </div>
-                    <!-- center -->
+    <!-- <img id="imgZoom" class="img" style="border: 1px solid black; align: right;" 
+        width="200px" height="200px" align="right" 
+        onmousemove="zoomIn(event)" 
+        onmouseout="zoomOut()" src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png">
+    <div style="border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            display: none;
+            
+            background-repeat: no-repeat;" id="overlay" onmousemove="zoomIn(event)"></div> -->
 
-                    <div class="flex-col flex-right">
-                        <ul class="nav top-bar-nav nav-right nav-small  nav-">
-                            <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-61"><a href="" class="nav-top-link">Tài khoản</a></li>
-                            <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-62"><a href="" class="nav-top-link">Thanh toán</a></li>
-                            <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-63"><a href="" class="nav-top-link">Cửa hàng</a></li>
-                        </ul>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </header>
+    <div class="img">
+        <img id="imgZoom" style="border: 1px solid black; align: right;" width="200px" height="200px" src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png">
     </div>
+    <div id="overlay"></div>
+    <script>
+        $('.img').mousemove(function(event) {
+            let img = $('#imgZoom').attr('src');
+            console.log(img)
+            $('#overlay').css({
+                "display": "inline-block",
+                "background-image": "url(" + img + ")"
+            });
+            let posX = event.offsetX ? (event.offsetX) : event.pageX - $('#imgZoom').offset.left;
+            let posY = event.offsetY ? (event.offsetY) : event.pageY - $('#imgZoom').offset.top;
+            $('#overlay').css({
+                "background-position": (-posX * 4) + "px " + (-posY * 4) + "px"
+            })
+        })
+        $(".img").mouseout(function() {
+                $('#overlay').css({
+                    "display": "none",
+                });
+            })
+            // function zoomIn(event) {
+            //     var element = document.getElementById("overlay");
+            //     element.style.display = "inline-block";
+            //     var imgsttr = document.getElementById("imgZoom").getAttribute('src')
+            //         // $('#overlay').css('display', 'block')
+            //     console.log(imgsttr)
+            //     element.style.backgroundImage = "url(" + imgsttr + ")";
+            //     var img = document.getElementById("imgZoom");
+            //     var posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+            //     var posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+            //     console.log(posY, posX)
+            //     element.style.backgroundPosition = (-posX * 4) + "px " + (-posY * 4) + "px";
+
+        // }
+
+
+        // function zoomOut() {
+        //     var element = document.getElementById("overlay");
+        //     element.style.display = "none";
+        // }
+    </script>
 </body>
+<style type="text/css">
+    #overlay {
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        display: none;
+        background-repeat: no-repeat;
+    }
+    
+    .img:hover {
+        cursor: zoom-in;
+    }
+</style>
+
 
 </html>
